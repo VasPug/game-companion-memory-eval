@@ -2,7 +2,9 @@
 
 How well can a small game companion remember what a player said earlier in a session? I tested two open-weight models (1.7B and 4B parameters) and three lower-cost GPT models. Each model answered the same six questions about three *Critical Role* sessions. It could either read the entire dialogue up to the question or use the three latest dialogue batches and up to four notes it had written before seeing the question.
 
-| Model | Full history | Pass⁵ | Recent dialogue + notes | Pass⁵ |
+In each condition, each model answered the same six questions five times each (6 × 5 = 30 answers). Accuracy counts correct answers out of 30. Pass⁵ counts questions answered correctly on all five tries, out of six. For example, with full history Gemma got four questions right every time and missed the other two every time. That gave it 20/30 for accuracy and 4/6 for Pass⁵.
+
+| Model | Full history: correct answers | All 5 tries correct | Recent dialogue + notes: correct answers | All 5 tries correct |
 | --- | ---: | ---: | ---: | ---: |
 | GPT-5 nano | 29/30 | 5/6 | 14/30 | 2/6 |
 | GPT-4o mini | 26/30 | 5/6 | 20/30 | 2/6 |
@@ -10,7 +12,7 @@ How well can a small game companion remember what a player said earlier in a ses
 | Liquid LFM3 1.7B | 1/30 | 0/6 | 0/30 | 0/6 |
 | Gemma 3 4B | 20/30 | 4/6 | 9/30 | 1/6 |
 
-Accuracy is the number of correct answers out of 30 trials per condition. Pass⁵ counts how many of the six questions the model answered correctly on all five attempts. A missing or cut-off answer earns zero. [Per-question scores for all five models](small-model-results.csv)
+A missing or cut-off answer earns zero. [Per-question scores for all five models](small-model-results.csv)
 
 All five models answered more questions correctly with full history. Gemma identified the game master’s corrected ruling in five of five full-history trials and one of five with notes. Gemma hit its output limit on 209 of 315 notebook writes, and Liquid did so on all 315. The result measures the whole process of writing, selecting and using notes under these limits. With six questions, no independent annotation review and no recent-dialogue-only control, the pilot cannot establish a general model ranking or isolate the benefit of adding notes to recent dialogue.
 
