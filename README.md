@@ -1,16 +1,24 @@
 # CRD3 companion memory
 
-Can a game companion retain a correction until a player needs it? This repository contains a small replay-based evaluation on dialogue from *Critical Role*. Three GPT-5 models answered the same six multiple-choice questions using either the full episode prefix or three recent dialogue batches and a notebook they maintained while reading.
+How well can a small game companion remember what a player said earlier in a session? I tested three open-weight models with 1.7–4 billion parameters and four lower-cost GPT models whose parameter counts are undisclosed. Each model answered the same six questions about three *Critical Role* sessions. It could either read the entire dialogue up to the question or use the three latest dialogue batches and up to four notes it had written before seeing the question.
 
-| Model | Full history | Recent dialogue + notes |
-| --- | ---: | ---: |
-| GPT-5 nano | 29/30 | 14/30 |
-| GPT-5 mini | 30/30 | 20/30 |
-| GPT-5 | 30/30 | 19/30 |
+| Model | Full history | Pass⁵ | Recent dialogue + notes | Pass⁵ |
+| --- | ---: | ---: | ---: | ---: |
+| GPT-5 nano | 29/30 | 5/6 | 14/30 | 2/6 |
+| GPT-4o mini | 26/30 | 5/6 | 20/30 | 2/6 |
+| GPT-5.4 nano | 26/30 | 5/6 | 14/30 | 1/6 |
+| GPT-6 Luna | 30/30 | 6/6 | Incomplete | — |
+| Liquid LFM3 1.7B | 1/30 | 0/6 | 0/30 | 0/6 |
+| Llama 3.2 3B | 23/30 | 4/6 | Incomplete | — |
+| Gemma 3 4B | 20/30 | 4/6 | 9/30 | 1/6 |
 
-Each condition used five repeats per question across three development episodes. Questions stayed hidden during note writing. One API answer was incomplete and counted as incorrect. The pilot measures replay question accuracy. The six questions have no independent annotation review, and the experiment has no recent-dialogue-only control. See the [per-question scores and correction trace](memory/results/report.md), [baseline scores](baseline/results/report.md), and [questions with evidence turns](baseline/questions.json).
+Accuracy counts correct answers on six development questions repeated five times. Pass⁵ counts questions answered correctly on every repeat. A missing or cut-off model answer counts as incorrect in a completed run. Repeated service or response failures prevented two notebook runs from finishing. Their scores are unavailable. [Per-question scores for all seven models](small-model-results.csv)
 
-## Reproduce the published scores
+All five models with a completed comparison answered more questions correctly with full history. Gemma identified the game master’s corrected ruling in five of five full-history trials and one of five with notes. Gemma hit its output limit on 209 of 315 notebook writes, and Liquid did so on all 315. The result measures the whole process of writing, selecting and using notes under these limits. With six questions, no independent annotation review and no recent-dialogue-only control, the pilot cannot establish a general model ranking or isolate the benefit of adding notes to recent dialogue.
+
+## Reproduce the original GPT pilot
+
+The archived trial logs and replay commands below cover the original GPT pilot. The expanded comparison above includes additional OpenAI and OpenRouter trials; the CSV provides their per-question counts. [Original notebook analysis](memory/results/report.md) · [Original baseline](baseline/results/report.md) · [Questions and supporting turns](baseline/questions.json)
 
 Use Python 3.10 or newer. The experiment code uses the standard library. These commands download the three pinned CRD3 source episodes, verify the transcript hashes, and replay the saved model outputs locally. No API key is needed.
 
@@ -23,7 +31,7 @@ python memory/summarize.py memory/results
 
 The last command also writes `memory/results/checkpoints.jsonl`, containing the full notebook, selected notes, and scored answer at each checkpoint. The published logs use pseudonymous response IDs. The prompts, predictions, and scoring inputs are unchanged. The pinned source files can also be supplied with `python prepare_data.py --source-dir "/path/to/cleaned data"`.
 
-## Run new model trials
+## Run new trials with the original GPT runner
 
 With the study data prepared, set `OPENAI_API_KEY` in your environment. These commands make billable requests to the OpenAI Responses API. New model outputs can differ from the recorded runs. The memory comparison script always uses the published baseline as its reference.
 
