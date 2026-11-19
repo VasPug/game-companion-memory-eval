@@ -2,9 +2,9 @@
 
 How well can a game companion remember what a player said earlier in a session? I tested two small open-weight models (1.7B and 4B parameters), GPT-5 nano, and a larger low-cost comparison, DeepSeek V4.1 Flash. Each model answered the same six questions about three *Critical Role* sessions. It could either read the entire dialogue up to the question or use the three latest dialogue batches and up to four notes it had written before seeing the question.
 
-In each condition, each model answered the same six questions five times each (6 × 5 = 30 answers). Accuracy counts correct answers out of 30. Pass⁵ counts questions answered correctly on all five tries, out of six. For example, with full history Gemma got four questions right every time and missed the other two every time. That gave it 20/30 for accuracy and 4/6 for Pass⁵.
+In each condition, each model answered the same six questions five times each (6 × 5 = 30 answers). Accuracy counts correct answers out of 30. Pass^5 counts questions answered correctly on all five tries, out of six. For example, with full history Gemma got four questions right every time and missed the other two every time. That gave it 20/30 for accuracy and 4/6 for Pass^5.
 
-| Model | Full history: correct answers | All 5 tries correct | Recent dialogue + notes: correct answers | All 5 tries correct |
+| Model | Full history: correct answers | Pass^5 | Recent dialogue + notes: correct answers | Pass^5 |
 | --- | ---: | ---: | ---: | ---: |
 | GPT-5 nano | 29/30 | 5/6 | 14/30 | 2/6 |
 | Liquid LFM3 1.7B | 1/30 | 0/6 | 0/30 | 0/6 |
