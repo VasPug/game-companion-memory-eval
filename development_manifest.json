@@ -1,0 +1,37 @@
+{
+  "source": "CRD3 original cleaned episode transcripts",
+  "batch_target_tokens": 2000,
+  "boundary_rule": "whole original turns; no concatenation across episodes; oversized single turns remain intact",
+  "contains_synthetic_dialogue": false,
+  "contains_qa_labels": false,
+  "status": "annotation-ready observation streams, not a scored benchmark",
+  "episodes": [
+    {
+      "episode": "C1E047",
+      "split": "training",
+      "turns": 1931,
+      "batches": 27,
+      "speaker_event_transcript_tokens": 51477,
+      "path": "development/C1E047.batches.jsonl",
+      "sha256": "3c2ebddbfe3fd5beb19ee44d6e2a6d2bd40a53909c47193a6ed567f2b76604cb"
+    },
+    {
+      "episode": "C1E016",
+      "split": "training",
+      "turns": 2716,
+      "batches": 34,
+      "speaker_event_transcript_tokens": 65995,
+      "path": "development/C1E016.batches.jsonl",
+      "sha256": "ceae3f3d08a80a4d2bccd39b8e778d7f1edb15126fae463c74d14d3c6f49a222"
+    },
+    {
+      "episode": "C1E082",
+      "split": "training",
+      "turns": 2942,
+      "batches": 42,
+      "speaker_event_transcript_tokens": 82513,
+      "path": "development/C1E082.batches.jsonl",
+      "sha256": "acabfd3445ea92b91a60ba14a0792dceb6d0dd311e4bd503b4c8dd397401baf3"
+    }
+  ]
+}

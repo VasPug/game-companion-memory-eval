@@ -1,0 +1,53 @@
+[
+  {
+    "episode": "C1E016",
+    "campaign": "C1",
+    "split": "training",
+    "turns": 2716,
+    "speaker_labels": 13,
+    "multi_or_missing_speaker_turns": 11,
+    "empty_text_turns": 0,
+    "plain_dialogue_tokens": 38030,
+    "speaker_event_transcript_tokens": 65995,
+    "serialized_events_tokens": 148178,
+    "source_bytes": 668756,
+    "source_sha256": "b947128c5853ce2b80d19f727889f345a6ef61fc9567ea2683853d749e347db2",
+    "replay_sha256": "33eb34465eb2302a8f5de05408fbb2869cce6a1f3621d09962a66e4bb3b02231",
+    "path": "crd3_replay/C1E016.jsonl",
+    "source_url": "https://github.com/RevanthRameshkumar/CRD3/blob/7fd4515eea411f0f9c5d0a03a8b6b8b2da464e81/data/cleaned%20data/C1E016.json"
+  },
+  {
+    "episode": "C1E047",
+    "campaign": "C1",
+    "split": "training",
+    "turns": 1931,
+    "speaker_labels": 7,
+    "multi_or_missing_speaker_turns": 2,
+    "empty_text_turns": 0,
+    "plain_dialogue_tokens": 31706,
+    "speaker_event_transcript_tokens": 51477,
+    "serialized_events_tokens": 109545,
+    "source_bytes": 503353,
+    "source_sha256": "6af78284e5c8be71ed7541a93fb2acf3bd70e2af834b2229f23c5c94d3c6276a",
+    "replay_sha256": "80095e93fe3806f62c8fccc1106ab765aab727f65706f840df8072fc7d25f51f",
+    "path": "crd3_replay/C1E047.jsonl",
+    "source_url": "https://github.com/RevanthRameshkumar/CRD3/blob/7fd4515eea411f0f9c5d0a03a8b6b8b2da464e81/data/cleaned%20data/C1E047.json"
+  },
+  {
+    "episode": "C1E082",
+    "campaign": "C1",
+    "split": "training",
+    "turns": 2942,
+    "speaker_labels": 7,
+    "multi_or_missing_speaker_turns": 4,
+    "empty_text_turns": 0,
+    "plain_dialogue_tokens": 51294,
+    "speaker_event_transcript_tokens": 82513,
+    "serialized_events_tokens": 172145,
+    "source_bytes": 780116,
+    "source_sha256": "d2e73ec7fd99d3048f000498c3d70601f30b5e536778b38e2da0abebf9f832d5",
+    "replay_sha256": "de5a94eb94b569ec78adf60c865ad94055ca58935941268f7a1069b4d8664f72",
+    "path": "crd3_replay/C1E082.jsonl",
+    "source_url": "https://github.com/RevanthRameshkumar/CRD3/blob/7fd4515eea411f0f9c5d0a03a8b6b8b2da464e81/data/cleaned%20data/C1E082.json"
+  }
+]

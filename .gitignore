@@ -1,0 +1,9 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+/crd3_replay/
+/development/
+/baseline/new-results*/
+/memory/new-results*/
+/memory/results/checkpoints.jsonl

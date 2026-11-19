@@ -1,0 +1,28 @@
+{
+  "models": [
+    "gpt-5-nano-2025-08-07",
+    "gpt-5-mini-2025-08-07",
+    "gpt-5-2025-08-07"
+  ],
+  "repeats": 5,
+  "reasoning": "minimal",
+  "questions_sha256": "39e6cf132d000a4239dce67fe2ced16d1c39aeefed84edbafb3cc6f8dd89f6f2",
+  "runner_sha256": "5c4189e32977577bfae4d0f952bef2854421e7b5a5ee433eb851573cfb99078c",
+  "rates_per_million": {
+    "gpt-5-nano-2025-08-07": [
+      0.05,
+      0.005,
+      0.4
+    ],
+    "gpt-5-mini-2025-08-07": [
+      0.25,
+      0.025,
+      2
+    ],
+    "gpt-5-2025-08-07": [
+      1.25,
+      0.125,
+      10
+    ]
+  }
+}
