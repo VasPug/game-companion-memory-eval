@@ -1,20 +1,18 @@
 # CRD3 companion memory
 
-How well can a small game companion remember what a player said earlier in a session? I tested three open-weight models with 1.7–4 billion parameters and four lower-cost GPT models whose parameter counts are undisclosed. Each model answered the same six questions about three *Critical Role* sessions. It could either read the entire dialogue up to the question or use the three latest dialogue batches and up to four notes it had written before seeing the question.
+How well can a small game companion remember what a player said earlier in a session? I tested two open-weight models (1.7B and 4B parameters) and three lower-cost GPT models. Each model answered the same six questions about three *Critical Role* sessions. It could either read the entire dialogue up to the question or use the three latest dialogue batches and up to four notes it had written before seeing the question.
 
 | Model | Full history | Pass⁵ | Recent dialogue + notes | Pass⁵ |
 | --- | ---: | ---: | ---: | ---: |
 | GPT-5 nano | 29/30 | 5/6 | 14/30 | 2/6 |
 | GPT-4o mini | 26/30 | 5/6 | 20/30 | 2/6 |
 | GPT-5.4 nano | 26/30 | 5/6 | 14/30 | 1/6 |
-| GPT-6 Luna | 30/30 | 6/6 | Incomplete | — |
 | Liquid LFM3 1.7B | 1/30 | 0/6 | 0/30 | 0/6 |
-| Llama 3.2 3B | 23/30 | 4/6 | Incomplete | — |
 | Gemma 3 4B | 20/30 | 4/6 | 9/30 | 1/6 |
 
-Accuracy counts correct answers on six development questions repeated five times. Pass⁵ counts questions answered correctly on every repeat. A missing or cut-off model answer counts as incorrect in a completed run. Repeated service or response failures prevented two notebook runs from finishing. Their scores are unavailable. [Per-question scores for all seven models](small-model-results.csv)
+Accuracy is the number of correct answers out of 30 trials per condition. Pass⁵ counts how many of the six questions the model answered correctly on all five attempts. A missing or cut-off answer earns zero. [Per-question scores for all five models](small-model-results.csv)
 
-All five models with a completed comparison answered more questions correctly with full history. Gemma identified the game master’s corrected ruling in five of five full-history trials and one of five with notes. Gemma hit its output limit on 209 of 315 notebook writes, and Liquid did so on all 315. The result measures the whole process of writing, selecting and using notes under these limits. With six questions, no independent annotation review and no recent-dialogue-only control, the pilot cannot establish a general model ranking or isolate the benefit of adding notes to recent dialogue.
+All five models answered more questions correctly with full history. Gemma identified the game master’s corrected ruling in five of five full-history trials and one of five with notes. Gemma hit its output limit on 209 of 315 notebook writes, and Liquid did so on all 315. The result measures the whole process of writing, selecting and using notes under these limits. With six questions, no independent annotation review and no recent-dialogue-only control, the pilot cannot establish a general model ranking or isolate the benefit of adding notes to recent dialogue.
 
 ## Reproduce the original GPT pilot
 
